@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: {fileID: 1256534384920252, guid: 6187b1457c37141228e1b653ca08e2a8, type: 2}
-  filePath: NotesCsv/NotesCrowSong.csv
+  filePath: NoteCsv/NotesCrowSong.csv
 --- !u!82 &1609222033
 AudioSource:
   m_ObjectHideFlags: 0
