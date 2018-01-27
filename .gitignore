@@ -522,3 +522,5 @@ $RECYCLE.BIN/
 \.vscode/
 
 *.mp3
+
+Assets/TouchScript/*
