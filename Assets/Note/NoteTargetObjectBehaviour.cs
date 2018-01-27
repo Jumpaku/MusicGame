@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotesTargetBehaviour : MonoBehaviour {
+public class NoteTargetObjectBehaviour : MonoBehaviour {
     public NotesData.NotesPosition goal;
 	void Start () {
 

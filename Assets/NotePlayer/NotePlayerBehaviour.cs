@@ -5,18 +5,18 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
-public class NotesPlayer : MonoBehaviour {
+public class NotePlayerBehaviour : MonoBehaviour {
 	public GameObject notes;
     public string filePath;
     public const float timeOffsetToCreate = -1;
-    public GameObject startButton;
     private List<Queue<NotesData>> channels;
     private AudioSource audioSource;
     private float startTime = 0;
-    private bool isPlaying = false;
     void Start(){
-        audioSource = GameObject.Find("GameMusic").GetComponent<AudioSource> ();
+        audioSource = GetComponent<AudioSource> ();
         channels = LoadChannelsFromCsv(Application.dataPath + "/" + filePath);
+        startTime = Time.time;
+        audioSource.Play();
     }
     private static List<Queue<NotesData>> LoadChannelsFromCsv(string csvPath){
 		StreamReader sr = new FileInfo(csvPath).OpenText();
@@ -38,23 +38,14 @@ public class NotesPlayer : MonoBehaviour {
         return channels;
     }
    void Update () {
-        if (isPlaying) {
-            CreateNextNotes();
-		}
-        
+        CreateNextNotes();        
     }
     void CreateNextNotes(){
         float currentTime = Time.time - startTime;
         foreach (var channel in channels){
             while(channel.Count > 0 && channel.Peek().Time + timeOffsetToCreate < currentTime) {
-                NotesBehaviour.CreateNotesObject(notes, channel.Dequeue());
+                NoteObjectBehaviour.CreateNotesObject(notes, channel.Dequeue());
             }
         }
-    }
-    public void StartMusic(){
-        startButton.SetActive (false);
-        startTime = Time.time;
-        audioSource.Play();
-        isPlaying = true;
     }
 }

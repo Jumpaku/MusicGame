@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NotesBehaviour : MonoBehaviour {
+public class NoteObjectBehaviour : MonoBehaviour {
     public static GameObject CreateNotesObject(GameObject notesPrefab, NotesData notesData) {
         GameObject obj = Instantiate<GameObject>(notesPrefab);
-        NotesBehaviour notes = obj.GetComponent<NotesBehaviour>();
+        NoteObjectBehaviour notes = obj.GetComponent<NoteObjectBehaviour>();
         notes.NotesData = notesData;
         return obj;
     }
@@ -62,7 +62,7 @@ public class NotesBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider t) {
         bool isGoal = t.gameObject.name.Contains("NotesTargetObject")
-            && t.GetComponent<NotesTargetBehaviour>().goal == NotesData.Goal;
+            && t.GetComponent<NoteTargetObjectBehaviour>().goal == NotesData.Goal;
         if (isGoal){   
             Debug.Log(NotesData.Goal.ToString());
         }

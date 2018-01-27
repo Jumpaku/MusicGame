@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TouchZoneBehaviour : MonoBehaviour {
+public class TouchZoneObjectBehaviour : MonoBehaviour {
 	public NotesData.NotesPosition goal;
 	public bool FlickedLeft { get; private set; } = false;
 	public bool FlickedRight { get; private set; } = false;
