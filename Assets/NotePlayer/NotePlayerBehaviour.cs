@@ -31,8 +31,8 @@ public class NotePlayerBehaviour : MonoBehaviour {
             channels[channelId].Enqueue(new NotesData(
                 time:float.Parse(values[0]),
                 type:(NotesData.NotesType)Enum.Parse(typeof(NotesData.NotesType), values[2]),
-                start:(NotesData.NotesPosition)Enum.Parse(typeof(NotesData.NotesPosition), values[4]),
-                goal:(NotesData.NotesPosition)Enum.Parse(typeof(NotesData.NotesPosition), values[3]),
+                start:(NotesData.NotePosition)Enum.Parse(typeof(NotesData.NotePosition), values[4]),
+                goal:(NotesData.NotePosition)Enum.Parse(typeof(NotesData.NotePosition), values[3]),
                 channelId:channelId));
         }
         return channels;

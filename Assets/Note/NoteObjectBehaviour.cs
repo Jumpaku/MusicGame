@@ -8,36 +8,36 @@ public class NoteObjectBehaviour : MonoBehaviour {
         notes.NotesData = notesData;
         return obj;
     }
-    private static Vector3 computeStartPosition(NotesData.NotesPosition notesPosition) {
+    private static Vector3 computeStartPosition(NotesData.NotePosition notesPosition) {
         float notesY = 10f;
         float notesX = 0f;
         switch (notesPosition) {
-        case NotesData.NotesPosition.L:
+        case NotesData.NotePosition.L:
             notesX = -4.0f + (2.0f * 0);break;
-        case NotesData.NotesPosition.LC:
+        case NotesData.NotePosition.LC:
             notesX = -4.0f + (2.0f * 1);break;
-        case NotesData.NotesPosition.C: 
+        case NotesData.NotePosition.C: 
             notesX = -4.0f + (2.0f * 2);break;
-        case NotesData.NotesPosition.RC: 
+        case NotesData.NotePosition.RC: 
             notesX = -4.0f + (2.0f * 3);break;
-        case NotesData.NotesPosition.R: 
+        case NotesData.NotePosition.R: 
             notesX = -4.0f + (2.0f * 4);break;
         }
         return new Vector3(notesX, notesY, 0f);
     }
-    private static Vector3 computeGoalPosition(NotesData.NotesPosition notesPosition) {
+    private static Vector3 computeGoalPosition(NotesData.NotePosition notesPosition) {
         float notesY = 0f;
         float notesX = 0f;
         switch (notesPosition) {
-        case NotesData.NotesPosition.L:
+        case NotesData.NotePosition.L:
             notesX = -4.0f + (2.0f * 0);break;
-        case NotesData.NotesPosition.LC:
+        case NotesData.NotePosition.LC:
             notesX = -4.0f + (2.0f * 1);break;
-        case NotesData.NotesPosition.C: 
+        case NotesData.NotePosition.C: 
             notesX = -4.0f + (2.0f * 2);break;
-        case NotesData.NotesPosition.RC: 
+        case NotesData.NotePosition.RC: 
             notesX = -4.0f + (2.0f * 3);break;
-        case NotesData.NotesPosition.R: 
+        case NotesData.NotePosition.R: 
             notesX = -4.0f + (2.0f * 4);break;
         }
         return new Vector3(notesX, notesY, 0f);

@@ -1,5 +1,5 @@
 ﻿public class NotesData {
-	public enum NotesPosition {
+	public enum NotePosition {
 		L, LC, C, RC, R,
 	}
 	public enum NotesType {
@@ -8,9 +8,9 @@
     public float Time { get; private set; }
     public int ChannelId { get; private set; }
     public NotesType Type { get; private set; }
-    public NotesPosition Goal { get; private set; }
-    public NotesPosition Start { get; private set; }
-	public NotesData(float time, int channelId, NotesType type, NotesPosition goal, NotesPosition start) {
+    public NotePosition Goal { get; private set; }
+    public NotePosition Start { get; private set; }
+	public NotesData(float time, int channelId, NotesType type, NotePosition goal, NotePosition start) {
 		Time = time;
 		ChannelId = channelId;
 		Type = type;
