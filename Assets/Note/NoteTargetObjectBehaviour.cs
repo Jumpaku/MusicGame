@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NoteTargetObjectBehaviour : MonoBehaviour {
-    public NotesData.NotePosition goal;
+    public NoteData.NotePosition goal;
 	void Start () {
 
 	}

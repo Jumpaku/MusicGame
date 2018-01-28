@@ -9,7 +9,7 @@ public class NotePlayerBehaviour : MonoBehaviour {
 	public GameObject notes;
     public string filePath;
     public const float timeOffsetToCreate = -1;
-    private List<Queue<NotesData>> channels;
+    private List<Queue<NoteData>> channels;
     private AudioSource audioSource;
     private float startTime = 0;
     void Start(){
@@ -18,21 +18,21 @@ public class NotePlayerBehaviour : MonoBehaviour {
         startTime = Time.time;
         audioSource.Play();
     }
-    private static List<Queue<NotesData>> LoadChannelsFromCsv(string csvPath){
+    private static List<Queue<NoteData>> LoadChannelsFromCsv(string csvPath){
 		StreamReader sr = new FileInfo(csvPath).OpenText();
-        List<Queue<NotesData>> channels = new List<Queue<NotesData>>();
+        List<Queue<NoteData>> channels = new List<Queue<NoteData>>();
         for (int i = 0; i < 5; i++){
-            channels.Add(new Queue<NotesData>());
+            channels.Add(new Queue<NoteData>());
         }
         while (sr.Peek() > -1) {
             string[] values = sr.ReadLine().Split (',');
             //叩く時刻, チャンネル, ノーツの種類, 叩く位置, 出現位置
             int channelId = int.Parse(values[1]);
-            channels[channelId].Enqueue(new NotesData(
+            channels[channelId].Enqueue(new NoteData(
                 time:float.Parse(values[0]),
-                type:(NotesData.NotesType)Enum.Parse(typeof(NotesData.NotesType), values[2]),
-                start:(NotesData.NotePosition)Enum.Parse(typeof(NotesData.NotePosition), values[4]),
-                goal:(NotesData.NotePosition)Enum.Parse(typeof(NotesData.NotePosition), values[3]),
+                type:(NoteData.NotesType)Enum.Parse(typeof(NoteData.NotesType), values[2]),
+                start:(NoteData.NotePosition)Enum.Parse(typeof(NoteData.NotePosition), values[4]),
+                goal:(NoteData.NotePosition)Enum.Parse(typeof(NoteData.NotePosition), values[3]),
                 channelId:channelId));
         }
         return channels;

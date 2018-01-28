@@ -2,42 +2,42 @@
 using System.Collections;
 
 public class NoteObjectBehaviour : MonoBehaviour {
-    public static GameObject CreateNotesObject(GameObject notesPrefab, NotesData notesData) {
+    public static GameObject CreateNotesObject(GameObject notesPrefab, NoteData notesData) {
         GameObject obj = Instantiate<GameObject>(notesPrefab);
         NoteObjectBehaviour notes = obj.GetComponent<NoteObjectBehaviour>();
         notes.NotesData = notesData;
         return obj;
     }
-    private static Vector3 computeStartPosition(NotesData.NotePosition notesPosition) {
+    private static Vector3 computeStartPosition(NoteData.NotePosition notesPosition) {
         float notesY = 10f;
         float notesX = 0f;
         switch (notesPosition) {
-        case NotesData.NotePosition.L:
+        case NoteData.NotePosition.L:
             notesX = -4.0f + (2.0f * 0);break;
-        case NotesData.NotePosition.LC:
+        case NoteData.NotePosition.LC:
             notesX = -4.0f + (2.0f * 1);break;
-        case NotesData.NotePosition.C: 
+        case NoteData.NotePosition.C: 
             notesX = -4.0f + (2.0f * 2);break;
-        case NotesData.NotePosition.RC: 
+        case NoteData.NotePosition.RC: 
             notesX = -4.0f + (2.0f * 3);break;
-        case NotesData.NotePosition.R: 
+        case NoteData.NotePosition.R: 
             notesX = -4.0f + (2.0f * 4);break;
         }
         return new Vector3(notesX, notesY, 0f);
     }
-    private static Vector3 computeGoalPosition(NotesData.NotePosition notesPosition) {
+    private static Vector3 computeGoalPosition(NoteData.NotePosition notesPosition) {
         float notesY = 0f;
         float notesX = 0f;
         switch (notesPosition) {
-        case NotesData.NotePosition.L:
+        case NoteData.NotePosition.L:
             notesX = -4.0f + (2.0f * 0);break;
-        case NotesData.NotePosition.LC:
+        case NoteData.NotePosition.LC:
             notesX = -4.0f + (2.0f * 1);break;
-        case NotesData.NotePosition.C: 
+        case NoteData.NotePosition.C: 
             notesX = -4.0f + (2.0f * 2);break;
-        case NotesData.NotePosition.RC: 
+        case NoteData.NotePosition.RC: 
             notesX = -4.0f + (2.0f * 3);break;
-        case NotesData.NotePosition.R: 
+        case NoteData.NotePosition.R: 
             notesX = -4.0f + (2.0f * 4);break;
         }
         return new Vector3(notesX, notesY, 0f);
@@ -45,7 +45,7 @@ public class NoteObjectBehaviour : MonoBehaviour {
     public Vector3　GetStartPosition() { return computeStartPosition(NotesData.Start); }
     public Vector3 GetGoalPosition() { return computeGoalPosition(NotesData.Goal); }
 
-    public NotesData NotesData { get; private set; }
+    public NoteData NotesData { get; private set; }
     private float parameterSpeed = 1f;//[1/s]
     private float parameter = 0f;
     private bool isAlive = true;
